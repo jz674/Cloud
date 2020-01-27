@@ -1,11 +1,11 @@
 import random
 import threading 
 
-class Foo: #how to initialize to 0?
+class Foo: 
     def __init__(self, i):
         self.i = i 
 
-    def bump(x):
+    def bump(self, x):
         self.i = self.i + x
 
 bar = Foo(0)
@@ -15,19 +15,15 @@ def main():
     for i in range(16):
         program(i)
 
-if __name__ == "__main__":
-    main()
-
 def program(t):
     count = 0
-    while count < t: #how to spawn t threads?
+    while count < t:
         #make a thread
         count += 1
         t1 = threading.Thread(target=target) 
         t1.start()
         t1.join()
-    print("The final value of bar is"+ bar.i)
-    
+    print("The final value of bar is " + str(bar.i))
 
 def target():
     step = random.randint(0,1000)
@@ -55,3 +51,5 @@ def target():
 # core. Then run it on 4 cores. To do this, you need to learn about the Linux taskset command.
 # Plot two graphs: one showing how performance varies as a function of t for a single core, and
 # the second (with the identical y axis scale!) showing how performance varies with 4 cores.
+if __name__ == "__main__":
+    main()
