@@ -15,7 +15,7 @@ def main():
     for i in range(16):
         program(i)
 
-if if __name__ == "__main__":
+if __name__ == "__main__":
     main()
 
 def program(t):
